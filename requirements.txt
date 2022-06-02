@@ -1,0 +1,11 @@
+lightgbm==3.3.1
+matplotlib
+seaborn
+pandas
+GitPython
+optuna
+dynaconf
+notebook
+pyarrow
+fastparquet
+pandas_gbq

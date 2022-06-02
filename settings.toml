@@ -1,0 +1,39 @@
+[default]
+feature_source = "dvc&local" #dvc|local|dvc&local|feast
+mlflow_tracking_uri = "http://34.68.199.94:5000"
+mlflow_user = "user1"
+data_path = "data"
+shortlist_filename = "pairs_shortlisted.parquet"
+shortlist-regen = false
+search2start-regen = false
+mlflow_password = "res94Q-s[x0"
+train_set_path = "data/feature_sets/feature_set_search2start.parquet"
+targets = ["packet2start", "packet2si", "si2start", "ms_search2start", "ss_search2start", "search2start"]
+test_sets = ["packet2start", "packet2si", "si2start", "ms_search2start", "ss_search2start", "search2start"]
+metrics = ["pairwise_ranking_score"]
+additional_metrics = ["mae"]
+do_feature_selection = false
+feature_selection_metric = "pairwise_ranking_score"
+feature_selection_iterations = 10000
+feature_selection_folds = 7
+feature_transformer = 'FeatureTransformerV1'
+
+[targets_dict]
+packet2start = "is_start"
+packet2si = "is_si"
+ms_search2start = "is_start"
+ss_search2start = "is_start"
+si2start = "is_start"
+search2start = 'is_start'
+search2start_new = 'is_start'
+search2start_special = 'is_start'
+
+[feature_sets]
+packet2start = "config/feature_set_packet2start.txt"
+
+[elastic]
+ES_URL = 'https://matching-production.es.us-west1.gcp.cloud.es.io:9243'
+ES_USER = 'elastic'
+ES_PASSWORD = "VGGHopOrq2dwtHbREG2KgwFt"
+PROD_ES_URL = "https://matching-production.es.us-west1.gcp.cloud.es.io:9243"
+PROD_DEVELOPERS_INDEX_NAME = "developer_search_production"
